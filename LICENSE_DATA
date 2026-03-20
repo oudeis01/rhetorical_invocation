@@ -1,0 +1,19 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The derived data in this repository (corpus_features.jsonl.gz,
+at_scores_llama.jsonl.gz, at_scores_qwen.jsonl.gz, url_category_map.json.gz)
+is licensed under the Creative Commons Attribution 4.0 International License.
+
+To view a copy of this license, visit:
+https://creativecommons.org/licenses/by/4.0/
+
+You are free to:
+  Share — copy and redistribute the material in any medium or format
+  Adapt — remix, transform, and build upon the material for any purpose
+
+Under the following terms:
+  Attribution — You must give appropriate credit, provide a link to the license,
+  and indicate if changes were made.
+
+Note: The original corpus texts from which these features were derived remain
+under copyright of their respective publishers and are not redistributed.
