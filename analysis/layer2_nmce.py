@@ -2,7 +2,7 @@
 """
 Layer II: Normalized Modifier Concentration Entropy (nMCE)
 
-Reproduces Table 5.x from the paper:
+Reproduces Section 5 (nMCE) tables from the paper:
   - Art corpus vs DOAJ nMCE mean, SD, Cohen's d
   - Institution-level breakdown
   - Robustness: restricted to docs with ≥5 IAE adj pairs

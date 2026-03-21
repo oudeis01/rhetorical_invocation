@@ -2,7 +2,7 @@
 """
 Cross-Layer Spearman Rank Correlation Matrix
 
-Reproduces Tables 7.4 and 8.1 from the paper.
+Reproduces Section 7.4 cross-layer correlation table from the paper.
 Joins all four metrics at the document URL level and computes:
   - Spearman ρ for all metric pairs
   - 95% CI via Fisher z-transformation

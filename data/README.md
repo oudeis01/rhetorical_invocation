@@ -10,7 +10,7 @@ All data files are included in this repository. No external download required.
 | at_scores_llama.jsonl.gz | 2.7 MB | Logprob pairs, Llama-3.3-70B-Instruct (177,123 art + 10,143 DOAJ pairs) |
 | at_scores_qwen.jsonl.gz | 2.0 MB | Logprob pairs, Qwen-2.5-72B-Instruct (77,219 art + 6,586 DOAJ pairs) |
 | url_category_map.json.gz | 1.4 MB | URL to {institution, category} for 60,480 art docs |
-| discourse_keywords_v3.json | 13 KB | 530 discourse keywords across 8 categories |
+| discourse_keywords.json | 13 KB | 530 discourse keywords across 8 categories |
 
 A Zenodo DOI will be added at paper submission for archival citation.
 

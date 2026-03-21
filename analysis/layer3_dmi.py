@@ -2,7 +2,7 @@
 """
 Layer III: Discourse Marker Interaction (DMI)
 
-Reproduces Table 6.1 and the zero-rate analysis from the paper:
+Reproduces Section 6 (DMI) tables from the paper:
   - Art corpus vs DOAJ: Liberal DMI, Conservative DMI, zero-rate
   - Odds Ratio (zero-DMI) with 95% CI
   - Breakdown by institution and url_category

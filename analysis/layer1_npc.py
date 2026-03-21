@@ -2,7 +2,7 @@
 """
 Layer I: Noun Phrase Complexity (NPC)
 
-Reproduces Tables 4.1 and 4.2 from the paper:
+Reproduces Section 4 (NPC) tables from the paper:
   - Aggregate NPC-Pre and NPC-Post for art corpus vs DOAJ baseline
   - Cohen's d
   - TOST equivalence test (Δ = ±0.20)

@@ -2,9 +2,10 @@
 
 Replication code and data for:
 
-> The Architecture of Rhetorical Invocation:
-> A Four-Layer Computational Analysis of Theoretical Vocabulary in Institutional Art Discourse
+> Rhetorical Invocation: A Four-Layer Computational Analysis of Discourse Vocabulary in Institutional Art Writing
 > Haram Choi, 2026
+
+arXiv: [placeholder — link will be added upon preprint upload]
 
 ---
 
@@ -32,20 +33,22 @@ Results are written to `output/`.
 ```
 rhetorical_invocation/
 ├── analysis/
-│   ├── layer1_npc.py          Layer I:  Noun Phrase Complexity
-│   ├── layer2_nmce.py         Layer II: Normalized Modifier Concentration Entropy
-│   ├── layer3_dmi.py          Layer III: Discourse Marker Interaction
-│   ├── layer4_at.py           Layer IV: Analytical Tendency (logprob-based)
-│   └── cross_layer.py         Cross-layer Spearman correlation matrix
+│   ├── layer1_npc.py               Section 4: Noun Phrase Complexity
+│   ├── layer2_nmce.py              Section 5: Normalized Modifier Collocation Entropy
+│   ├── layer3_dmi.py               Section 6: Discourse Marker Interaction
+│   ├── layer4_at.py                Section 7: Analytical Tendency (logprob-based)
+│   ├── cross_layer.py              Section 7.4: Cross-layer Spearman correlation matrix
+│   └── collocation_concentration.py  Table 5.0: Corpus-level collocation top-1 share
 │
 ├── data/
 │   ├── README.md
 │   ├── at_scores_llama.jsonl.gz     Logprob pairs, Llama-3.3-70B-Instruct
 │   ├── at_scores_qwen.jsonl.gz      Logprob pairs, Qwen-2.5-72B-Instruct
-│   ├── corpus_features.json.gz      NPC, nMCE, DMI per document
-│   ├── discourse_keywords_v3.json   530 keywords across 8 discourses
+│   ├── corpus_features.jsonl.gz     NPC, nMCE, DMI per document
+│   ├── discourse_keywords.json      530 keywords across 8 discourses
 │   ├── url_category_map.json.gz     URL → {institution, category} mapping
-│   └── 
+│   └── samples/
+│       └── corpus_features_sample.jsonl  100-doc stratified sample
 │
 ├── docs/
 │   ├── pipeline_overview.md   Full pipeline description (crawling → scoring)
@@ -57,7 +60,6 @@ rhetorical_invocation/
 │       └── layer4_user_prompt.md   User prompt template
 │
 ├── output/                    Generated results (gitignored except .gitkeep)
-├── zenodo_prep/               Zenodo upload scripts (not needed for analysis)
 ├── requirements.txt
 ├── LICENSE                    MIT (code)
 └── LICENSE_DATA               CC BY 4.0 (derived data)
@@ -72,9 +74,9 @@ rhetorical_invocation/
 - `corpus_features.jsonl.gz` — NPC, nMCE, DMI per document (60,480 art + 1,657 DOAJ docs)
 - `at_scores_llama.jsonl.gz` — Logprob pairs, Llama-3.3-70B-Instruct (177,123 art + 10,143 DOAJ pairs)
 - `at_scores_qwen.jsonl.gz` — Logprob pairs, Qwen-2.5-72B-Instruct (77,219 art + 6,586 DOAJ pairs)
-- `data/discourse_keywords_v3.json` — 530 discourse keywords across 8 categories
+- `data/discourse_keywords.json` — 530 discourse keywords across 8 categories
 - `data/url_category_map.json.gz` — URL-to-category mapping (60,480 art docs)
-- `data/samples/` — 100-doc sample for testing
+- `data/samples/` — 100-doc stratified sample for testing
 
 ### corpus_features.jsonl.gz Schema
 
@@ -105,10 +107,11 @@ Fields are `null` where not computable (e.g., `npc_pre` when `total_nouns < 5`).
 Each script reads from `data/` and writes to `output/`. All scripts accept
 `--help` for options.
 
-### Layer I — NPC (`analysis/layer1_npc.py`)
+### Section 4 — NPC (`analysis/layer1_npc.py`)
 
-Reproduces Tables 4.1 and 4.2. Computes NPC-Pre and NPC-Post, Cohen's d,
-TOST equivalence test (Δ = ±0.20), and OLS length-adjusted d.
+Reproduces the NPC aggregate and length-adjusted tables (Section 4).
+Computes NPC-Pre and NPC-Post, Cohen's d, TOST equivalence test (Δ = ±0.20),
+and OLS length-adjusted d.
 
 ```bash
 python analysis/layer1_npc.py --data data/corpus_features.jsonl.gz
@@ -117,18 +120,34 @@ python analysis/layer1_npc.py --data data/corpus_features.jsonl.gz
 Expected output (Art vs DOAJ):
 - NPC-Post adjusted d = −0.12 (paper: −0.12)
 
-### Layer II — nMCE (`analysis/layer2_nmce.py`)
+### Section 5 — nMCE (`analysis/layer2_nmce.py`)
 
-Reproduces Table 5.x. Computes normalized Modifier Concentration Entropy.
+Reproduces the nMCE aggregate table and institution breakdown (Section 5).
+Computes normalized Modifier Collocation Entropy, Cohen's d, length-adjusted d,
+and per-institution values.
 
 ```bash
 python analysis/layer2_nmce.py --data data/corpus_features.jsonl.gz
 ```
 
-### Layer III — DMI (`analysis/layer3_dmi.py`)
+Expected output:
+- Art mean nMCE = 0.972, d = +2.00 (paper: confirmed)
+- All 13 institutions above DOAJ baseline, minimum d = +1.07
 
-Reproduces Table 6.1. Computes Conservative/Liberal DMI, zero-rate, and
-Odds Ratio with 95% CI.
+### Table 5.0 — Corpus-level collocations (`analysis/collocation_concentration.py`)
+
+Reproduces Table 5.0 (top-1 collocation share per adjective, Art vs DOAJ).
+Requires the raw `structural_results.jsonl` file (not distributed; see docs).
+
+```bash
+python analysis/collocation_concentration.py --data structural_results.jsonl
+python analysis/collocation_concentration.py --data structural_results.jsonl --table-only
+```
+
+### Section 6 — DMI (`analysis/layer3_dmi.py`)
+
+Reproduces the DMI aggregate table and zero-rate analysis (Section 6).
+Computes Conservative/Liberal DMI, zero-rate, and Odds Ratio with 95% CI.
 
 ```bash
 python analysis/layer3_dmi.py --data data/corpus_features.jsonl.gz
@@ -138,9 +157,10 @@ Expected output:
 - Zero-rate: Art 60.1%, DOAJ 20.0% (paper: confirmed)
 - OR = 5.48 [95% CI: 4.86, 6.18]
 
-### Layer IV — AT (`analysis/layer4_at.py`)
+### Section 7 — AT (`analysis/layer4_at.py`)
 
-Reproduces Tables 7.2 and 7.3. Computes Analytical Tendency from logprob data.
+Reproduces the AT aggregate, depth distribution, and content format tables
+(Section 7). Computes Analytical Tendency from logprob data.
 
 ```bash
 python analysis/layer4_at.py \
@@ -151,9 +171,9 @@ python analysis/layer4_at.py \
 Expected output:
 - Art AT = 0.0523, DOAJ AT = 0.1851, ratio = 3.54× (paper: confirmed)
 
-### Cross-Layer (`analysis/cross_layer.py`)
+### Section 7.4 — Cross-layer (`analysis/cross_layer.py`)
 
-Reproduces Tables 7.4 and 8.1. Spearman rank correlation matrix.
+Reproduces the Spearman rank correlation matrix (Section 7.4).
 
 ```bash
 python analysis/cross_layer.py \
@@ -185,8 +205,7 @@ See `docs/prompts/` for all prompts and rubrics.
 
 Computed values may differ slightly from paper values due to corpus version
 differences. The analysis pipeline was applied to the corpus as it existed
-at time of writing (2026-03-07 for LLM runs). The data reflects
-the final corpus state.
+at time of writing (2026-03-07 for LLM runs).
 
 Key paper values that are exactly reproduced from the data:
 - Art AT = 0.0523, DOAJ AT = 0.1851, ratio 3.54×
@@ -201,8 +220,8 @@ Key paper values that are exactly reproduced from the data:
 If you use this code or data, please cite:
 
 ```bibtex
-@article{[placeholder],
-  title   = {The Architecture of Rhetorical Invocation},
+@article{choi2026rhetorical,
+  title   = {Rhetorical Invocation: A Four-Layer Computational Analysis of Discourse Vocabulary in Institutional Art Writing},
   author  = {Choi, Haram},
   year    = {2026},
   journal = {[Journal]},
@@ -225,6 +244,6 @@ For the depth rubric specifically:
 
 ## License
 
-Code: MIT License (see `LICENSE`)  
-Derived data (Zenodo): CC BY 4.0 (see `LICENSE_DATA`)  
+Code: MIT License (see `LICENSE`)
+Derived data (Zenodo): CC BY 4.0 (see `LICENSE_DATA`)
 Original corpus texts: copyright of respective publishers; not distributed

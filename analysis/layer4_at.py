@@ -2,7 +2,7 @@
 """
 Layer IV: Analytical Tendency (AT)
 
-Reproduces Tables 7.2 and 7.3 from the paper.
+Reproduces Section 7 (AT) tables from the paper.
 
 AT is computed as the per-pair mean of P(depth=4) + P(depth=5) over all
 (doc, discourse) pairs where top_alternatives is non-empty.
