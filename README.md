@@ -244,5 +244,5 @@ For the depth rubric specifically:
 ## License
 
 Code: MIT License (see `LICENSE`)
-Derived data (Zenodo): CC BY 4.0 (see `LICENSE_DATA`)
+Derived data: CC BY 4.0 (see `LICENSE_DATA`)
 Original corpus texts: copyright of respective publishers; not distributed
