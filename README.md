@@ -3,7 +3,10 @@
 Replication code and data for:
 
 > Rhetorical Invocation: A Four-Layer Computational Analysis of Discourse Vocabulary in Institutional Art Writing
+> 
 > Haram Choi, 2026
+>
+> https://doi.org/10.31235/osf.io/4au72_v2
 
 
 ---
