@@ -226,7 +226,7 @@ If you use this code or data, please cite:
   year      = {2026},
   publisher = {SocArXiv},
   doi       = {10.31235/osf.io/4au72_v1},
-  url       = {https://doi.org/10.31235/osf.io/4au72_v1},
+  url       = {https://doi.org/10.31235/osf.io/4au72_v2},
   note      = {Preprint. Submitted to \textit{Humanities and Social 
                Sciences Communications}}
 }
