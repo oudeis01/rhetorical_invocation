@@ -227,7 +227,7 @@ If you use this code or data, please cite:
   publisher = {SocArXiv},
   doi       = {10.31235/osf.io/4au72_v1},
   url       = {https://doi.org/10.31235/osf.io/4au72_v1},
-  note      = {Preprint. Under review at \textit{Humanities and Social 
+  note      = {Preprint. Submitted to \textit{Humanities and Social 
                Sciences Communications}}
 }
 }
