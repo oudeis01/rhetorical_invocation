@@ -222,17 +222,13 @@ Key paper values that are exactly reproduced from the data:
 If you use this code or data, please cite:
 
 ```bibtex
-@misc{choi2026rhetorical,
-  title     = {Rhetorical Invocation: A Four-Layer Computational Analysis 
-               of Discourse Vocabulary in Institutional Art Writing},
-  author    = {Choi, Haram},
-  year      = {2026},
-  publisher = {SocArXiv},
-  doi       = {10.31235/osf.io/4au72_v1},
-  url       = {https://doi.org/10.31235/osf.io/4au72_v2},
-  note      = {Preprint. Submitted to \textit{Humanities and Social 
-               Sciences Communications}}
-}
+@misc{choi_2026,
+  title={Rhetorical Invocation: A Four-Layer Computational Analysis of Discourse Vocabulary in Institutional Art Writing},
+  url={osf.io/preprints/socarxiv/4au72_v2},
+  publisher={SocArXiv},
+  author={Choi, Haram},
+  year={2026},
+  month={Mar}
 }
 ```
 
