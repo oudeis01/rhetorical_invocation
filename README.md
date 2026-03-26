@@ -13,7 +13,7 @@ Replication code and data for:
 ## Key Results
 
 <table>
-<tr>
+<tc>
 <td width="50%">
 
 **Fig. 1 — Analytical Tendency by Institution**
@@ -34,7 +34,7 @@ nMCE × AT < 0 and DMI(cons) × AT > 0 reflect orthogonal engagement dimensions.
 ![Cross-layer heatmap](figures/fig5_crosslayer_heatmap_vertical.png)
 
 </td>
-</tr>
+</tc>
 </table>
 
 All five figures with detailed captions: [`figures/README.md`](figures/README.md)
