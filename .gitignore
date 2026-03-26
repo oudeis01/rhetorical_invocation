@@ -1,6 +1,5 @@
 output/*
 !output/.gitkeep
-zenodo_prep/
 __pycache__/
 *.pyc
 .DS_Store

@@ -4,7 +4,7 @@ Corpus-level collocation concentration analysis for Table 5.0.
 Computes top-1 share (%) for selected adjectives across Art and DOAJ corpora.
 This supplements the document-level nMCE metric with corpus-level context.
 
-Input: corpus_features.jsonl.gz (not used), structural_results.jsonl (mce_pairs)
+Input: structural_results.jsonl (mce_pairs)
 Output: Table showing per-adjective top-1 noun partner and concentration % for each corpus.
 
 Usage:

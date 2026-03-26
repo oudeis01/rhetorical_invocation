@@ -12,8 +12,6 @@ All data files are included in this repository. No external download required.
 | url_category_map.json.gz | 1.4 MB | URL to {institution, category} for 60,480 art docs |
 | discourse_keywords.json | 13 KB | 530 discourse keywords across 8 categories |
 
-A Zenodo DOI will be added at paper submission for archival citation.
-
 ## corpus_features.jsonl.gz schema
 
 ```json
