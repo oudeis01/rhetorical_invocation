@@ -135,23 +135,40 @@ Additional files:
 
 **`npc_scores.jsonl.gz`**
 ```json
-{"url": "https://...", "institution": "artforum",
- "total_nouns": 312, "npc_pre": 0.221, "npc_post": 0.318}
+{
+ "url": "https://...",
+ "institution": "artforum",
+ "total_nouns": 312,
+ "npc_pre": 0.221,
+ "npc_post": 0.318
+}
 ```
 
 **`nmce_scores.jsonl.gz`**
 ```json
-{"url": "https://...", "institution": "moussemagazine",
- "adj_counter": {"critical": 4, "contemporary": 2, ...}, "total_nouns": 289}
+{
+ "url": "https://...",
+ "institution": "moussemagazine",
+ "adj_counter": {
+         "critical": 4,
+         "contemporary": 2,
+          ...
+                },
+ "total_nouns": 289}
 ```
 
 **`dmi_scores.jsonl.gz`**
 ```json
-{"url": "https://...", "institution": "e-flux",
+{
+ "url": "https://...",
+ "institution": "e-flux",
  "total_keyword_matches": 14,
- "dmi_liberal": 0.0714, "dmi_conservative": 0.0,
+ "dmi_liberal": 0.0714,
+ "dmi_conservative": 0.0,
  "dmi_zero": false,
- "dmi_csv_liberal": 0.0357, "dmi_csv_conservative": 0.0}
+ "dmi_csv_liberal": 0.0357,
+ "dmi_csv_conservative": 0.0
+}
 ```
 > Note: `dmi_liberal`/`dmi_conservative` use contrast weight w = 1.0 (paper §6).
 > `dmi_csv_liberal`/`dmi_csv_conservative` preserve the original w = 0.5 output,
@@ -159,9 +176,20 @@ Additional files:
 
 **`at_scores_llama.jsonl.gz`**
 ```json
-{"doc_id": "https://...", "institution": "afterall", "discourse": "postcolonial",
+{
+ "doc_id": "https://...",
+ "institution": "afterall",
+ "discourse": "postcolonial",
  "at_value": 0.0086,
- "top_alternatives": [{"token": "3", "prob": 0.9914}, {"token": "4", "prob": 0.0086}]}
+ "top_alternatives": [{
+              "token": "3",
+              "prob": 0.9914
+              },
+              {
+              "token": "4",
+              "prob": 0.0086
+              }]
+}
 ```
 
 ---
